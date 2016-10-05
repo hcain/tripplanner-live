@@ -10,14 +10,11 @@ activities.forEach(function(activity){
 	$('#activity-choices').append("<option>" + activity.name + "</option>")
 })
 
-console.log('./map')
-
 $('.btn').on('click', function(){
 	if(this.id === 'hotel-plus-btn'){
 		var hotel = $("#hotel-choices option:selected").text();
 		checkDoubles("#itinerary-hotel", hotel, checkDoubles.prototype.loggedHotels);
 		checkDoubles.prototype.loggedHotels.push(hotel);
-		console.log($(hotel));
 	} else if(this.id === 'restaurant-plus-btn'){
 		var restaurant = $("#restaurant-choices option:selected").text();
 		checkDoubles("#itinerary-restaurant", restaurant, checkDoubles.prototype.loggedRestaurants);
@@ -44,6 +41,7 @@ var checkDoubles = function(itinerary, option, database){
 checkDoubles.prototype.loggedHotels = [];
 checkDoubles.prototype.loggedRestaurants = [];
 checkDoubles.prototype.loggedActivities = [];
+
 
 function initializeMap (){
 
